@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+
+from gi.repository import Playerctl, GLib
+import subprocess
+
+manager = Playerctl.PlayerManager()
+
+icon = '⏸'
+
+def notify(player):
+    command = "pkill -RTMIN+22 dwmblocks" 
+
+
+    if player.props.player_name == "mpv":
+        print(player.props.player_name)
+        command = "pkill -RTMIN+23 dwmblocks"
+
+    subprocess.Popen(command.split())
+    # metadata = player.props.metadata
+    # if 'xesam:title' in metadata.keys():
+    #     print('{icon} {title}'.format(
+    #         icon=icon, title=metadata['xesam:title']))
+
+
+
+def on_play(player, status, manager):
+    icon = '▶'
+    notify(player)
+
+def on_pause(player, status, manager):
+    icon = '⏸'
+    notify(player)
+
+def on_metadata(player, metadata, manager):
+    icon = '⏸' if player.props.status == "Paused" else '▶'
+    notify(player)
+
+def init_player(name):
+    # choose if you want to manage the player based on the name
+    # if name.name in ['vlc', 'cmus']:
+    if True:
+        player = Playerctl.Player.new_from_name(name)
+        # connect to whatever you want to listen to
+        player.connect('playback-status::playing', on_play, manager)
+        player.connect('playback-status::paused', on_pause, manager)
+        player.connect('metadata', on_metadata, manager)
+        # add the player to the list of managed players and be notified when it
+        # exits
+        manager.manage_player(player)
+
+def on_name_appeared(manager, name):
+    # a player is available to control
+    print(name)
+    init_player(name)
+
+manager.connect('name-appeared', on_name_appeared)
+
+# manage the initial players
+for name in manager.props.player_names:
+    init_player(name)
+
+main = GLib.MainLoop()
+main.run()

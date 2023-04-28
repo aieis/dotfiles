@@ -1,0 +1,8 @@
+#! /bin/sh
+
+FILE=$(echo -e "1-lock\n2-suspend\n3-shutdown" | dmenu)
+case $FILE in 
+	"1-lock") slock;; 
+	"2-suspend") systemctl suspend;; 
+	"3-shutdown") poweroff;; 
+esac

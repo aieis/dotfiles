@@ -1,0 +1,29 @@
+#! /bin/sh
+
+# command='
+# {"command": ["get_property_string", "pause"]}
+# {"command": ["get_property_string", "media-title"]}'
+# output=$(echo "$command" | socat - /tmp/mpvsocket | jq '.data?' | tr '\n' ' ' | sed -e 's/^"yes" /⏸ /; s/^"no" /▶ /; s/"//';)
+# printf "%s" "$output"
+
+#source "`dirname "$0"`"/.music.env
+WEB=$(playerctl --list-all | grep web-media-controller)
+WEBTAR="web-media-controller"
+icon=''
+if [[ "$WEB" =~ "$WEBTAR".* ]]
+   then
+    status=$(playerctl --player=$WEB status)
+    case "$status" in
+	"Playing") status='▶️';;
+	"Paused")  status='⏸';;
+	*)         status='⏹️';;
+    esac
+
+    if [ $HIDEMUSE -eq 0 ]
+    then
+	title=$(playerctl --player=$WEB metadata --format '{{title}}')
+    fi
+fi
+
+printf " %s %s %s " "$icon" "$status" "$title"
+

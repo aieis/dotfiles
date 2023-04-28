@@ -1,0 +1,5 @@
+#! /bin/sh
+
+mem=$(free | awk '/^Mem:/{print $3 / $2 * 100}')
+icon="🐏"
+printf " %s %0.f %s " "$icon" "$mem" "%"

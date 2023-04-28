@@ -1,0 +1,9 @@
+#! /bin/sh
+
+icon='⬇️'
+
+case "$BUTTON" in
+    3) notify-send -t 2000 "$(transmission-remote -n 'transmission:transmission' -l)";;
+esac
+
+printf " %s " "$icon"

@@ -1,0 +1,33 @@
+#! /bin/sh
+
+# command='
+# {"command": ["get_property_string", "pause"]}
+# {"command": ["get_property_string", "media-title"]}'
+# output=$(echo "$command" | socat - /tmp/mpvsocket | jq '.data?' | tr '\n' ' ' | sed -e 's/^"yes" /⏸ /; s/^"no" /▶ /; s/"//';)
+# printf "%s" "$output"
+PLAYER=$(playerctl --list-all | grep $2)
+PLAYERTAR="$2"
+icon="$1"
+status='⏹️'
+if [[ "$PLAYER" =~ "$PLAYERTAR".* ]]
+   then
+    title=$(playerctl --player=$PLAYER metadata --format '{{duration(position)}}/{{duration(mpris:length)}}
+{{title}}')
+    case "$BUTTON" in
+	0) playerctl --player=$PLAYER play-pause;;
+	1) status=$(playerctl --player=$PLAYER status)
+	    case "$status" in
+		"Playing") status='▶️';;
+		"Paused")  status='⏸';;
+		*)         status='⏹️';;
+	    esac
+	    notify-send -t 2000 "$icon - [$status] $title";;
+    esac
+    status=$(playerctl --player=$PLAYER status)
+    case "$status" in
+	"Playing") status='▶️';;
+	"Paused")  status='⏸';;
+	*)         status='⏹️';;
+    esac
+fi
+printf " %s - %s " "$icon" "[$status]"

@@ -1,0 +1,4 @@
+alias ls 'ls --color=auto'
+alias ec "/usr/bin/emacsclient -n -c -a ''"
+alias python "/usr/bin/python3.9"
+alias pip "/usr/bin/python3.9 -m pip"

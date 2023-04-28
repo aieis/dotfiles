@@ -1,0 +1,16 @@
+set ratios 1:2:3
+set previewer ~/.config/lf/preview
+set cleaner ~/.config/lf/cleaner
+
+map gp cd ~/projects/
+
+map gdc cd ~/projects/ml/pytorch-CycleGAN-and-pix2pix
+map gdd cd ~/source/dwm
+
+map gdaa cd /mnt/F/Projects/Animal_portraits/
+map gdap cd /mnt/F/Projects/Animal_portraits/Polar_bear
+map gdaf cd /mnt/F/Projects/Animal_portraits/Fox
+map gdah cd /mnt/F/Projects/Animal_portraits/Hare
+
+map gdm cd /run/media/ai
+map gdn cd /mnt/

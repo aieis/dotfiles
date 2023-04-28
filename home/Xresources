@@ -1,0 +1,110 @@
+#define base00 #151515
+#define base01 #202020
+#define base02 #303030
+#define base03 #505050
+#define base04 #b0b0b0
+#define base05 #d0d0d0
+#define base06 #e0e0e0
+#define base07 #f5f5f5
+#define base08 #ac4142
+#define base09 #d28445
+#define base0A #f4bf75
+#define base0B #90a959
+#define base0C #75b5aa
+#define base0D #6a9fb5
+#define base0E #aa759f
+#define base0F #8f5536
+
+URxvt*foreground:   base05
+#ifdef background_opacity
+URXvt*background:   [background_opacity]base00
+#else
+URxvt*background:   base00
+#endif
+URxvt*cursorColor:  base05
+
+*color0:       base00
+*color1:       base08
+*color2:       base0B
+*color3:       base0A
+*color4:       base0D
+*color5:       base0E
+*color6:       base0C
+*color7:       base05
+
+*color8:       base03
+*color9:       base08
+*color10:      base0B
+*color11:      base0A
+*color12:      base0D
+*color13:      base0E
+*color14:      base0C
+*color15:      base07
+
+st*alpha: 0.85
+
+!! Fonts !!
+URxvt.font: xft:Iosevka:style=Regular:size=14,xft:Twitter Color Emoji:size=14
+URxvt.boldFont: xft:Iosevka:style=Bold:size=14,xft:Twitter Color Emoji:size=14
+URxvt.italicFont: xft:Iosevka:style=Italic:size=14,xft:Twitter Color Emoji:size=14
+URxvt.boldItalicfont: xft:Iosevka:style=Bold Italic:size=14,xft:Twitter Color Emoji:size=14
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+
+
+!! Scrolling !!
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+URxvt*scrollBar: false
+
+
+
+!! MISC !!
+
+! Disable printing the terminal contents when pressing PrintScreen
+URxvt.print-pipe: "cat >/dev/null"
+
+
+
+!!! Perl Extensions !!!
+
+
+! Cut and Paste 
+URxvt.clipboard.autocopy: true
+!URxvt.keysym.Mod4-c: perl:clipboard:copy
+!URxvt.keysym.Mod4-v: perl:clipboard:paste
+
+! Clickable URLS
+URxvt.url-launcher: firefox 
+URxvt.matcher.button: 1
+
+! Open URLs via Keyboard
+URxvt.keysym.C-Delete: perl:matcher:last
+URxvt.keysym.Mod4-Delete: perl:matcher:list
+URxvt.matcher.rend.0: Uline Bold fg5
+
+! Simple tabs
+!URxvt.tabbed.tabbar-fg: 2
+!URxvt.tabbed.tabbar-bg: 0
+!URxvt.tabbed.tab-fg: 3
+!URxvt.tabbed.tab-bg: 0
+
+! Changing Font Size on the fly
+!URxvt.keysym.C-+: resize-font:bigger
+!URxvt.keysym.C--: resize-font:smaller
+
+
+! Yankable URLs
+URxvt.keysym.Mod4-u: perl:url-select:select_next
+URxvt.url-select.launcher: firefox
+URxvt.url-select.underline: true
+
+
+!! Enabling the Perl Extensions !!
+URxvt.perl-ext-common: default,clipboard,matcher,url-select,resize-font
+
+
+!! Disabling Default Bindings !!
+URxvt.iso.14755: false
+URxvt.iso14755_52: false

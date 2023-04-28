@@ -1,0 +1,6 @@
+PATH="/opt/unreal-engine/Engine/Binaries/Linux/:$HOME/.ghcup/bin:$HOME/.local/bin:$HOME/.local:$HOME/.local/scripts:$HOME/.local/scripts/statusbar:$PATH"
+EDITOR='/usr/bin/emacsclient -c -a ""'
+setxkbmap gb
+xrdb ~/.Xresources
+DOTNET_CLI_TELEMETRY_OPTOUT=1	#Opt out of microsoft spying?
+

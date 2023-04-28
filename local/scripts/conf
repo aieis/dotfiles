@@ -1,0 +1,23 @@
+#! /bin/sh
+
+FILE=$(echo "myinit.org
+zshrc
+lf
+statusbar
+conf
+" | dmenu)
+
+unset CONFFILE;
+case $FILE in
+    "myinit.org") CONFFILE="~/.emacs.d/myinit.org";;
+    "zshrc") CONFFILE="~/.config/zsh/.zshrc";;
+    "lf") CONFFILE="~/.config/lf/lfrc";;
+    "statusbar") CONFFILE="~/.local/scripts/statusbar";;
+    "conf") CONFFILE="$0";;
+
+esac
+	   
+if [ $CONFFILE ]
+then
+    /usr/bin/emacsclient -c -a "" $CONFFILE
+fi

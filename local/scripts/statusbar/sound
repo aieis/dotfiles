@@ -1,0 +1,4 @@
+#! /bin/sh
+
+echo "Vol:"
+amixer get Master | grep -m 1 -o "[0-9]*%\|\[on\]\|\[off\]" | sed "s/\[on\]//;s/\[off\]/Mute/"

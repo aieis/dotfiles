@@ -1,0 +1,4 @@
+#! /bin/sh
+   
+gpu=$(nvidia-smi | awk '/%/{print  "Gpu: " $5 " " $9  / $ 11 * 100 "%"}')
+printf " %s " "$gpu"
