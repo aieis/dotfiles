@@ -1,14 +1,7 @@
-#PATH="$HOME/.ghcup/bin:$HOME/.local/bin:$HOME/.local:$HOME/.local/scripts:$HOME/.local/scripts/statusbar:$PATH"
-#EDITOR='/usr/bin/emacsclient -c -a ""'
-#setxkbmap gb
-#DOTNET_CLI_TELEMETRY_OPTOUT=1	#Opt out of microsoft spying?
-##xrandr --output DP1 --auto --right-of eDP1
-#xrdb ~/.Xresources
-#feh --bg-scale ~/wallpaper.jpg
 source $HOME/.profile
-picom --config /dev/null --backend glx --vsync --daemon 
+picom --config /dev/null --backend glx --vsync --daemon
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 > /dev/null  2>&1 &
 dunst -conf .config/dunst/dunstrc > /dev/null 2>&1 &
 dwmblocks > /dev/null 2>&1 &
 nm-applet > /dev/null 2>&1 &
-
+source ~/.screenlayout/layout.sh

@@ -1,11 +1,11 @@
-#! /bin/sh
-#notify-send "Vol: $BUTTON"
+#!/bin/sh
+notify-send "Vol: $BUTTON"
 case "$BUTTON" in
-    0) amixer set Master toggle > /dev/null;; 
+    1) amixer set Master toggle > /dev/null;; 
     2) amixer sset Master 2%+ > /dev/null;;
     3) amixer sset Master 2%- > /dev/null;;
-    6) amixer sset Master 1%+ > /dev/null;;
-    7) amixer sset Master 1%- > /dev/null;;
+    4) amixer sset Master 1%+ > /dev/null;;
+    5) amixer sset Master 1%- > /dev/null;;
 esac
 
 vol=$(amixer get Master | grep -m 1 -o "[0-9]*%\|\[on\]\|\[off\]" | tr '\n' ' ' | sed -E "s/([0-9].*%).*(\[.*\])/\2 \1/;s/\[on\]/🔊/;s/\[off\]/🔇/")
