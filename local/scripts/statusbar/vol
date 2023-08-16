@@ -1,5 +1,5 @@
 #!/bin/sh
-notify-send "Vol: $BUTTON"
+#notify-send "Vol: $BUTTON"
 case "$BUTTON" in
     1) amixer set Master toggle > /dev/null;; 
     2) amixer sset Master 2%+ > /dev/null;;

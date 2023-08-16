@@ -1,5 +1,5 @@
 #! /bin/sh
 
-storage=$(df -l | awk '/^\/dev/{print $6":"$5 }' | sed "/boot/d; s/\/home/home/; s/\/:/root:/")
+storage=$(df -l | awk '/^\/dev/{print $6":"$5 }' | sed "/boot/d; s/\/home/hm/;")
 icon="💾"
 printf " %s %s " "$icon" $storage

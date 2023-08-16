@@ -1,7 +1,16 @@
 source $HOME/.profile
-picom --config /dev/null --backend glx --vsync --daemon
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 > /dev/null  2>&1 &
-dunst -conf .config/dunst/dunstrc > /dev/null 2>&1 &
-dwmblocks > /dev/null 2>&1 &
-nm-applet > /dev/null 2>&1 &
+setxkbmap gb
+xrdb ~/.Xresources
+
+progs=("picom --config /dev/null --backend glx --vsync --daemon"
+       "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+       "dunst -conf .config/dunst/dunstrc"
+       "dwmblocks"
+       "nm-applet")
+
+for prog in "${progs[@]}"; do
+    prog_name=$(echo "$prog" | awk '{print $1}')
+    pidof -sx "$prog_name" || sh -c "$prog" &
+done >/dev/null 2>&1
+
 source ~/.screenlayout/layout.sh
