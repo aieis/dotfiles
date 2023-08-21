@@ -1,16 +1,11 @@
-source $HOME/.profile
+. $HOME/.profile
 setxkbmap gb
 xrdb ~/.Xresources
 
-progs=("picom --config /dev/null --backend glx --vsync --daemon"
-       "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-       "dunst -conf .config/dunst/dunstrc"
-       "dwmblocks"
-       "nm-applet")
+progs="picom dunst dwmblocks nm-applet"
 
-for prog in "${progs[@]}"; do
-    prog_name=$(echo "$prog" | awk '{print $1}')
-    pidof -sx "$prog_name" || sh -c "$prog" &
+for prog in $progs; do
+    pidof -sx $prog || $prog &
 done >/dev/null 2>&1
 
-source ~/.screenlayout/layout.sh
+sh $HOME/.screenlayout/layout.sh

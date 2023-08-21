@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 LOCAL_DIR="$SCRIPT_DIR"/local
@@ -9,8 +9,8 @@ for tf in "$LOCAL_DIR"/*; do
 
     if [[ -d "$sf" && -d "$tf" ]]
     then
-        echo cp -r "$sf"/* "$tf"
-        cp -r "$sf"/* "$tf"
+        echo cp -r "$sf"/* "$tf"/
+        cp -r "$sf"/* "$tf"/
     else
         echo cp -r "$sf" "$tf"
         cp -r "$sf" "$tf"
@@ -25,8 +25,8 @@ for tf in "$CONFIG_DIR"/*; do
 
     if [[ -d "$sf" && -d "$tf" ]]
     then
-        echo cp -r "$sf"/* "$tf"
-        cp -r "$sf"/* "$tf"
+        echo cp -r "$sf"/* "$tf"/
+        cp -r "$sf"/* "$tf"/
     else
         echo cp -r "$sf" "$tf"
         cp -r "$sf" "$tf"
