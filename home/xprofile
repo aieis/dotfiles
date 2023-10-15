@@ -2,7 +2,7 @@
 setxkbmap gb
 xrdb ~/.Xresources
 
-progs="picom dunst dwmblocks nm-applet"
+progs="picom dunst dwmblocks nm-applet blueman-applet"
 
 for prog in $progs; do
     pidof -sx $prog || $prog &

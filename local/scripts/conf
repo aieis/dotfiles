@@ -5,6 +5,7 @@ zshrc
 lf
 statusbar
 conf
+dwm
 " | dmenu)
 
 unset CONFFILE;
@@ -13,6 +14,7 @@ case $FILE in
     "zshrc") CONFFILE="~/.config/zsh/.zshrc";;
     "lf") CONFFILE="~/.config/lf/lfrc";;
     "statusbar") CONFFILE="~/.local/scripts/statusbar";;
+    "dwm") CONFFILE="~/source/dwm/config.def.h";;
     "conf") CONFFILE="$0";;
 
 esac
