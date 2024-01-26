@@ -26,8 +26,8 @@ compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=2000
-SAVEHIST=2000
+HISTSIZE=100000
+SAVEHIST=100000
 setopt beep nomatch notify
 unsetopt autocd extendedglob
 bindkey -e
@@ -39,6 +39,7 @@ alias ls='ls --color=auto'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias ec='/usr/bin/emacsclient -c -n -a ""'
 alias ecn='/usr/bin/emacsclient -n -a ""'
+alias ect='/usr/bin/emacsclient -t -a ""'
 export EDITOR='/usr/bin/emacsclient -c -a ""'
 export CONFIGDIR="$HOME/.config"
 export SHOTS="$HOME/Libraries/shots"
