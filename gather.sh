@@ -7,14 +7,8 @@ for tf in "$LOCAL_DIR"/*; do
     fn=$(basename "$tf")
     sf="$HOME/.local/$fn"
 
-    if [[ -d "$sf" && -d "$tf" ]]
-    then
-        echo cp -r "$sf"/* "$tf"/
-        cp -r "$sf"/* "$tf"/
-    else
-        echo cp -r "$sf" "$tf"
-        cp -r "$sf" "$tf"
-    fi
+    echo cp -rT "$sf" "$tf"
+    cp -rT "$sf" "$tf"
 done
 
 CONFIG_DIR="$SCRIPT_DIR"/config
@@ -23,14 +17,8 @@ for tf in "$CONFIG_DIR"/*; do
     fn=$(basename "$tf")
     sf="$HOME/.config/$fn"
 
-    if [[ -d "$sf" && -d "$tf" ]]
-    then
-        echo cp -r "$sf"/* "$tf"/
-        cp -r "$sf"/* "$tf"/
-    else
-        echo cp -r "$sf" "$tf"
-        cp -r "$sf" "$tf"
-    fi
+    echo cp -rT "$sf" "$tf"
+    cp -rT "$sf" "$tf"
 done
 
 HOME_DIR="$SCRIPT_DIR"/home
@@ -41,4 +29,4 @@ for tf in "$HOME_DIR"/*; do
     [[ -f "$sf" ]] || sf="$HOME/.$fn"
     echo cp -r "$sf" "$tf"
     cp -r "$sf" "$tf"
-done   
+done
