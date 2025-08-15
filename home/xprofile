@@ -9,3 +9,4 @@ for prog in $progs; do
 done >/dev/null 2>&1
 
 sh $HOME/.screenlayout/layout.sh
+feh --bg-fill ~/.wallpaper.jpg
