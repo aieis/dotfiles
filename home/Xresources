@@ -108,3 +108,6 @@ URxvt.perl-ext-common: default,clipboard,matcher,url-select,resize-font
 !! Disabling Default Bindings !!
 URxvt.iso.14755: false
 URxvt.iso14755_52: false
+
+xterm*faceName: Monospace
+xterm*faceSize: 26
