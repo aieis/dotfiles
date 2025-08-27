@@ -13,6 +13,4 @@ fi
 [[ -f ~/.xprofile ]] && . ~/.xprofile
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
-while :; do
-	ssh-agent dwm
-done
+exec dwm

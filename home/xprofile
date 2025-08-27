@@ -2,9 +2,9 @@
 setxkbmap gb
 xrdb ~/.Xresources
 
-progs="picom dunst dwmblocks nm-applet blueman-applet"
+progs=("picom" "dunst" "dwmblocks" "nm-applet" "blueman-applet" "xfce4-power-manager")
 
-for prog in $progs; do
+for prog in ${progs[*]}; do
     pidof -sx $prog || $prog &
 done >/dev/null 2>&1
 

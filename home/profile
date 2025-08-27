@@ -10,4 +10,3 @@ if [ -f '/home/ai/source/google/google-cloud-sdk/path.zsh.inc' ]; then . '/home/
 if [ -f '/home/ai/source/google/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ai/source/google/google-cloud-sdk/completion.zsh.inc'; fi
 
 DOTNET_CLI_TELEMETRY_OPTOUT=1	#Opt out of microsoft spying?
-. "$HOME/.cargo/env"
