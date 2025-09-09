@@ -1,0 +1,70 @@
+#!/bin/bash
+
+r=00
+g=00
+b=00
+
+# Kingston Fury Beast DDR5 RGB Controller Color Set
+# =================================================
+
+ramstick1=0x61
+ramstick2=0x63
+
+i2cbus=13
+i2cbusdet=
+
+echo $i2cbus $i2cbusdet
+
+if ! [[ $r =~ ^[0-9a-fA-F]{2}$ ]]; then
+    echo "$r is not a valid octet hex value"
+    exit 1
+fi
+red=$r
+
+if ! [[ $g =~ ^[0-9a-fA-F]{2}$ ]]; then
+    echo "$g is not a valid octet hex value"
+    exit 1
+fi
+green=$g
+
+if ! [[ $b =~ ^[0-9a-fA-F]{2}$ ]]; then
+    echo "$b is not a valid octet hex value"
+    exit 1
+fi
+blue=$b
+
+clear && echo ""
+echo "Detected bus: $i2cbusdet"
+echo -e "Setting up color value of #$red$green$blue\n"
+
+# Ram Stick 1
+
+i2cset -y $i2cbus $ramstick1 0x08 0x53
+sleep 0.020
+i2cset -y $i2cbus $ramstick1 0x09 0x00
+sleep 0.020
+i2cset -y $i2cbus $ramstick1 0x31 0x$red
+sleep 0.020
+i2cset -y $i2cbus $ramstick1 0x32 0x$green
+sleep 0.020
+i2cset -y $i2cbus $ramstick1 0x33 0x$blue
+sleep 0.020
+i2cset -y $i2cbus $ramstick1 0x20 0x1e
+sleep 0.020
+i2cset -y $i2cbus $ramstick1 0x08 0x44
+
+# Ram Stick 2
+
+i2cset -y $i2cbus $ramstick2 0x08 0x53
+sleep 0.020
+i2cset -y $i2cbus $ramstick2 0x09 0x00
+sleep 0.020
+i2cset -y $i2cbus $ramstick2 0x31 0x$red
+sleep 0.020
+i2cset -y $i2cbus $ramstick2 0x32 0x$green
+sleep 0.020
+i2cset -y $i2cbus $ramstick2 0x33 0x$blue
+sleep 0.020
+i2cset -y $i2cbus $ramstick2 0x20 0x1e
+sleep 0.020
+i2cset -y $i2cbus $ramstick2 0x08 0x44
