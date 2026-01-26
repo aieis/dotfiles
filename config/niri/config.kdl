@@ -245,6 +245,15 @@ window-rule {
     match app-id="zoom"
     open-floating true
 }
+
+// Custom window rules
+window-rule {
+    match app-id=r#"firefox$"# title="^Firefox - Choose User Profile$"
+    match app-id=r#"org.pulseaudio.pavucontrol"# title="^Volume Control"
+    open-floating true
+}
+
+
 // Open dms windows as floating by default
 window-rule {
     match app-id=r#"org.quickshell$"#
