@@ -126,7 +126,7 @@ binds {
     Super+B hotkey-overlay-title="Browser" { spawn "firefox" "-p"; }
     Super+E hotkey-overlay-title="explorer" { spawn "dolphin"; }
     Super+N hotkey-overlay-title="Emacs" { spawn "emacsclient" "-n" "-c" "-a" ""; }
-    Super+Shift+Return hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
+    Super+Shift+Return hotkey-overlay-title="Open Terminal" { spawn "wezterm-gui"; }
     Mod+D repeat=false { toggle-overview; }
     Mod+Escape { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+Slash { show-hotkey-overlay; }
