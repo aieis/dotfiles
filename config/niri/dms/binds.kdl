@@ -77,6 +77,7 @@ binds {
     Mod+Down { focus-window-down; }
     Mod+End { focus-column-last; }
     Mod+Equal { set-column-width "+10%"; }
+    Mod+Ctrl+Equal { set-column-width "+0.5%"; }
     Mod+F { maximize-column; }
     Mod+H { focus-column-left; }
     Mod+Home { focus-column-first; }
@@ -85,6 +86,7 @@ binds {
     Mod+L { focus-column-right; }
     Mod+Left { focus-column-left; }
     Mod+Minus { set-column-width "-10%"; }
+    Mod+Ctrl+Minus { set-column-width "-0.5%"; }
     // Mod+Period { expel-window-from-column; }
     Mod+Q repeat=false { close-window; }
     Mod+R { switch-preset-column-width; }
@@ -134,14 +136,8 @@ binds {
 
         // Custom
 
-        Mod+Period {
-                focus-monitor-next
-        }
-
-        Mod+Shift+Period {
-                move-window-to-monitor-next
-        }
-
-        Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }        
+        Mod+Period { focus-monitor-next; }
+        Mod+Shift+Period { move-window-to-monitor-next; }
+        Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
 
 }
