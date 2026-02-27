@@ -1,12 +1,13 @@
 . $HOME/.profile
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 setxkbmap gb
-xrdb ~/.Xresources
-
-progs=("picom" "dunst" "dwmblocks" "nm-applet" "blueman-applet" "xfce4-power-manager")
-
-for prog in ${progs[*]}; do
-    pidof -sx $prog || $prog &
-done >/dev/null 2>&1
-
-sh $HOME/.screenlayout/layout.sh
-feh --bg-fill ~/.wallpaper.jpg
+# xrdb ~/.Xresources
+# 
+# progs=("picom" "dunst" "dwmblocks" "nm-applet" "blueman-applet" "xfce4-power-manager")
+# 
+# for prog in ${progs[*]}; do
+#     pidof -sx $prog || $prog &
+# done >/dev/null 2>&1
+# 
+# sh $HOME/.screenlayout/layout.sh
+# feh --bg-fill ~/.wallpaper.jpg

@@ -1,7 +1,9 @@
-PATH="$HOME/source/odin/:/opt/unreal-engine/Engine/Binaries/Linux/:$HOME/.ghcup/bin:$HOME/.local/bin:$HOME/.local:$HOME/.local/scripts:$HOME/.local/scripts/statusbar:$PATH"
+PATH="$HOME/source/odin/:/opt/unreal-engine/Engine/Binaries/Linux/:$HOME/.ghcup/bin:$HOME/.local/usr/bin:$HOME/.local/bin:$HOME/.local:$HOME/.local/scripts:$HOME/.local/scripts/statusbar:$PATH"
 EDITOR='emacsclient -c -a ""'
 
-pidof -sx emacs || sh -c "emacs --daemon" &
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/TensorRT/lib:$LD_LIBRARY_PATH
+
+# pidof -sx emacs || sh -c "emacs --daemon" &
 
 ## The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/ai/source/google/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ai/source/google/google-cloud-sdk/path.zsh.inc'; fi

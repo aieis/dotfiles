@@ -2,7 +2,7 @@
 # autoload -Uz promptinit
 # promptinit
 # prompt adam1
-PS1='%F{cyan}%n@%m %F{green}%~ 
+PS1='%F{cyan}%n@%m %F{green}%~
  %F{white}%# '
 
 # The following lines were added by compinstall
@@ -25,9 +25,10 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=100000
-SAVEHIST=100000
+export HISTFILE=~/.histfile
+export HISTSIZE=100000
+export SAVEHIST=100000
+
 setopt beep nomatch notify
 unsetopt autocd extendedglob
 bindkey -e
@@ -46,7 +47,7 @@ export SHOTS="$HOME/Libraries/shots"
 export notes="$HOME/documents/notes"
 
 ## -- Misc Opts --- ###
-bindkey '^[[A' up-line-or-search                                                
+bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
 # ### --- Plugins --- ###
@@ -59,3 +60,11 @@ source $HOME/.config/zsh/plugins/zsh-z.plugin.zsh
 
 # Keychain for ssh keys
 #eval $(keychain --eval --quiet id_rsa)
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
