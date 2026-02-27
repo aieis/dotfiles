@@ -246,14 +246,6 @@ window-rule {
     open-floating true
 }
 
-// Custom window rules
-window-rule {
-    match app-id=r#"firefox$"# title="^Firefox - Choose User Profile$"
-    match app-id=r#"org.pulseaudio.pavucontrol"# title="^Volume Control"
-    open-floating true
-}
-
-
 // Open dms windows as floating by default
 window-rule {
     match app-id=r#"org.quickshell$"#
@@ -280,3 +272,7 @@ include "dms/alttab.kdl"
 include "dms/binds.kdl"
 include "dms/outputs.kdl"
 include "dms/cursor.kdl"
+
+include "./dms/windowrules.kdl"
+// Include local
+include "./local.kdl"
