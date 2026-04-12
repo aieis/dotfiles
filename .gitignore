@@ -1,1 +1,5 @@
 config/niri/dms/outputs.kdl
+config/niri/local.kdl
+config/zsh/#.zshrc#
+config/zsh/.zcompdump
+config/alacritty/dank-theme.toml

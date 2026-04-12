@@ -73,6 +73,7 @@ binds {
     Mod+Ctrl+R { reset-window-height; }
     Mod+Ctrl+Right { focus-monitor-right; }
     Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
+    Shift+F11 { toggle-windowed-fullscreen; }
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
     Mod+Ctrl+Shift+WheelScrollUp { move-column-left; }
     Mod+Ctrl+WheelScrollLeft { move-column-left; }
@@ -138,4 +139,6 @@ binds {
     Super+Shift+Return hotkey-overlay-title="Open Terminal" { spawn "wezterm-gui"; }
     Mod+Shift+S { spawn "sh" "-c" "grim -g \"$(slurp)\" - | satty -f -"; }
 
+    Mod+Alt+WheelScrollDown { move-workspace-down; }
+    Mod+Alt+WheelScrollUp   { move-workspace-up; }
 }
