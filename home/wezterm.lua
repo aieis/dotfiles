@@ -8,7 +8,7 @@ config.initial_cols = 120
 config.initial_rows = 28
 config.enable_wayland = false
 
-config.font_size = 28
+config.font_size = 20
 config.font = wezterm.font 'Iosevka'
 
 local padding = 30

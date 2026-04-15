@@ -136,7 +136,7 @@ binds {
     Super+B hotkey-overlay-title="Browser" { spawn "firefox" "-p"; }
     Super+E hotkey-overlay-title="explorer" { spawn "dolphin"; }
     Super+N hotkey-overlay-title="Emacs" { spawn "emacsclient" "-n" "-c" "-a" ""; }
-    Super+Shift+Return hotkey-overlay-title="Open Terminal" { spawn "wezterm-gui"; }
+    Super+Shift+Return hotkey-overlay-title="Open Terminal" { spawn "wezterm" "start" "--always-new-process"; }
     Mod+Shift+S { spawn "sh" "-c" "grim -g \"$(slurp)\" - | satty -f -"; }
 
     Mod+Alt+WheelScrollDown { move-workspace-down; }
