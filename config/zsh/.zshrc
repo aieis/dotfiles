@@ -70,3 +70,4 @@ function y() {
 }
 
 source <(fzf --zsh)
+FZF_CTRL_R_OPTS='--bind "ctrl-c:become:echo {q}"'

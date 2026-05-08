@@ -3,5 +3,9 @@ window-rule {
         match app-id=r#"firefox$"# title="^Firefox - Choose User Profile$"
         match app-id=r#"org.pulseaudio.pavucontrol"# title="^Volume Control"
         match app-id=r#"com.gabm.satty"# title="^satty$"
+        match app-id=r#"dmenu"#
+        match app-id=r#"bemenu"#
+        match title="^scratchpad$"
+        match app-id="^Matplotlib$"
         open-floating true
 }
