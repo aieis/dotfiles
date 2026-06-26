@@ -1,11 +1,11 @@
 # Font Configuration
-font-size = 14
+font-size = 16
 
 # Window Configuration
 window-decoration = false
 window-padding-x = 20
 window-padding-y = 20
-background-opacity = 1.0
+background-opacity = 0.8
 background-blur-radius = 32
 
 # Cursor Configuration
