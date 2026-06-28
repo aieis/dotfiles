@@ -15,6 +15,7 @@ fi
 
 [[ -f ~/.screenlayout/layout.sh ]] && sh ~/.screenlayout/layout.sh
 
+
 progs=("picom" "dunst" "dwmblocks" "nm-applet" "blueman-applet" "xfce4-power-manager")
 
 for prog in ${progs[*]}; do
@@ -23,8 +24,5 @@ done >/dev/null 2>&1
 
 feh --bg-fill ~/.wallpaper.jpg >/dev/null 2>&1
 
-export XDG_SESSION_TYPE=x11
-export XDG_CURRENT_DESKTOP=KDE
-export XDG_SESSION_DESKTOP=KDE
-export DESKTOP_SESSION=plasma
 exec dwm
+#exec /home/ai/projects/DHSArtworkManager/LinuxArtworkManager
